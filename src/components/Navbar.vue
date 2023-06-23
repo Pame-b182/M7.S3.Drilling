@@ -45,7 +45,7 @@
                     ><router-link
                       class="text-decoration-none text-light"
                       to="/pop"
-                      >Pop</router-link
+                      >Pop ({{totalAlbumsPop}})</router-link
                     ></a
                   >
                 </li>
@@ -54,7 +54,7 @@
                     ><router-link
                       class="text-decoration-none text-light"
                       to="/rock"
-                      >Rock</router-link
+                      >Rock ({{totalAlbumsRock}})</router-link
                     ></a
                   >
                 </li>
@@ -63,11 +63,21 @@
                     ><router-link
                       class="text-decoration-none text-light"
                       to="/rap"
-                      >Rap</router-link
+                      >Rap ({{totalAlbumsRap}})</router-link
                     ></a
                   >
                 </li>
               </ul>
+            </li>
+             <li class="nav-item">
+          <a class="nav-link disabled">N° de Albums: {{totalAlbums}}</a>
+        </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#"
+                ><router-link class="text-decoration-none text-light" to="/agregar"
+                  >Agregar Album</router-link
+                ></a
+              >
             </li>
           </ul>
         </div>
@@ -77,13 +87,16 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
   name: "navbar-component",
   // props: {},
   data: function () {
     return {};
   },
-  // computed: {},
+  computed: {
+    ...mapGetters(['totalAlbums', 'totalAlbumsPop', 'totalAlbumsRock', 'totalAlbumsRap'])
+  },
   //methods: {}
   // watch: {},
   // components: {},

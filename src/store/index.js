@@ -28,10 +28,39 @@ export default new Vuex.Store({
     ]
     },
       getters: {
+        totalAlbumsPop: state =>{
+          return state.pop.length
+        },
+        totalAlbumsRock: state =>{
+          return state.rock.length
+        },
+        totalAlbumsRap: state =>{
+          return state.rap.length
+        },
+        totalAlbums: (state, getters) =>{
+          let total = getters.totalAlbumsPop + getters.totalAlbumsRock + getters.totalAlbumsRap
+          return total
+        },
     },
       mutations: {
+        //Mutación que aplica el método push() para agregar la banda a la categoría que le corresponde
+        AGREGAR_ALBUM: (state, banda) =>{
+          if (banda.category == 'pop') {
+            state.pop.push(banda)
+          }
+          if (banda.category == 'rock') {
+            state.rock.push(banda)
+          }
+          if (banda.category == 'rap') {
+            state.rap.push(banda)
+          }
+        }
     },
       actions: {
+        //Action que ejecutará la mutación. la action entrega un album y la mutación lo recibe
+        agregarAlbum({commit}, banda){
+          commit('AGREGAR_ALBUM', banda)
+        }
     },
       modules: {
     }

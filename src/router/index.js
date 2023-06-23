@@ -4,7 +4,7 @@ import Inicio from '@/views/Inicio.vue'
 import PopView from '@/views/PopView.vue'
 import RockView from '@/views/RockView.vue'
 import RapView from '@/views/RapView.vue'
-
+import AgregarAlbum from '@/views/AgregarAlbumView.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -27,6 +27,11 @@ const routes = [
     path: '/rap',
     name: 'rapView',
     component: RapView
+  },
+  {
+    path: '/agregar',
+    name: 'agregarAlbum',
+    component: AgregarAlbum
   },
 
 ]

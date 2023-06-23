@@ -2,18 +2,13 @@
   <div class="container m-3">
     <div class="row">
         <h1 class="text-center"><i class="fa-solid fa-headphones"></i> Rock</h1>
-    <div v-for="banda in rock" :key="banda.id" class="card text-center mx-auto m-3 p-0" style="width: 18rem">
-      <img :src="banda.image" class="card-img-top" alt="" />
-      <div class="card-body">
-        <h5 class="card-title">{{banda.artist}}</h5>
-        <p class="card-text">{{banda.album}}</p>
-      </div>
-    </div>
+        <Card v-for="album in rock" :key="album.id" :banda="album"/>
     </div>
   </div>
 </template>
 
 <script>
+import Card from '@/components/Card.vue'
 import { mapState } from 'vuex'
 export default {
     name: 'rock-view',
@@ -26,7 +21,9 @@ export default {
     },
     //methods: {}
     // watch: {},
-    //components: {},
+    components: {
+      Card
+    },
     // mixins: [],
     // filters: {},
     // -- Lifecycle Methods

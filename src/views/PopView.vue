@@ -1,20 +1,16 @@
 <template>
   <div class="container m-3">
     <div class="row">
-        <h1 class="text-center"><i class="fa-solid fa-headphones"></i> Pop</h1>
-    <div v-for="banda in pop" :key="banda.id" class="card text-center mx-auto m-3 p-0" style="width: 18rem">
-      <img :src="banda.image" class="card-img-top" alt="" />
-      <div class="card-body">
-        <h5 class="card-title">{{banda.artist}}</h5>
-        <p class="card-text">{{banda.album}}</p>
-      </div>
-    </div>
+      <h1 class="text-center"><i class="fa-solid fa-headphones"></i> Pop</h1>
+      <!-- Se utiliza el componente "card" se le aplica un v-for para que muestre todos los albums ingresados -->
+      <!-- :banda="album" > prop banda se iguala al album definido en v-for -->
+      <Card v-for="album in pop" :key="album.id" :banda="album" />
     </div>
   </div>
 </template>
 
 <script>
-
+import Card from "@/components/Card.vue";
 import { mapState } from "vuex";
 export default {
   name: "pop-view",
@@ -27,7 +23,9 @@ export default {
   },
   //methods: {}
   // watch: {},
-  //components: {},
+  components: {
+    Card,
+  },
   // mixins: [],
   // filters: {},
   // -- Lifecycle Methods
